@@ -1,5 +1,6 @@
 package com.alibaba.dubbo.consumer;
 
+import com.alibaba.dubbo.demo.CountService;
 import com.alibaba.dubbo.demo.DemoService;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,7 +12,9 @@ public class Consumer {
         context.start();
         System.out.println("consumer start");
         DemoService demoService = context.getBean(DemoService.class);
+        CountService countService = context.getBean(CountService.class);
         System.out.println("consumer");
+        System.out.println(countService.getCount(5));
         System.out.println(demoService.getPermissions(5L));
     }
 }
